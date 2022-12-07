@@ -7,15 +7,22 @@ package org.cal.strategyexercice;
  *
  */
 public class Personne {
-    public static String HEUREUSE = "Heureuse";
-    public static String TRISTE = "Triste";
-    public static String MALHEUREUSE = "Malheureuse";
-    private final String humeur;
+    public final static String HEUREUSE = "Heureuse";
+    public final static String TRISTE = "Triste";
+    public final static String MALHEUREUSE = "Malheureuse";
+    private final HumeurStrategy humeur;
+
+
     public Personne(String humeur) {
-        this.humeur = humeur;
+        switch (humeur){
+            case HEUREUSE -> this.humeur = new HeureuseStrategy();
+            case TRISTE -> this.humeur = new TristeStrategy();
+            case MALHEUREUSE -> this.humeur = new MalheureuseStrategy();
+            default -> this.humeur = new HeureuseStrategy();
+        }
     }
 
-    public String getHumeur() {
+    public HumeurStrategy getHumeur() {
         return humeur;
     }
     @Override

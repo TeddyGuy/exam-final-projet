@@ -23,13 +23,12 @@ public class GameRunner {
 
             aGame.roll(rand.nextInt(MIN_ROLL_VALUE, MAX_ROLL_VALUE)); //Magic Number
 
-            if (rand.nextInt(9) == 7) {
+            if (rand.nextBoolean()) {
                 notAWinner = aGame.wrongAnswer();
-            } else {
-                notAWinner = aGame.wasCorrectlyAnswered();
+                continue;
             }
 
-
+            notAWinner = aGame.wasCorrectlyAnswered();
 
         } while (notAWinner);
 

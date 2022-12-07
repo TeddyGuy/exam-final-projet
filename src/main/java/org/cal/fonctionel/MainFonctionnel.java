@@ -1,6 +1,9 @@
 package org.cal.fonctionel;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MainFonctionnel {
 
@@ -30,21 +33,21 @@ public class MainFonctionnel {
     }
 
     private static List<Student> studentsSortedByAge() {
-        return null;
+        return students.stream().sorted(Comparator.comparingInt(Student::age)).collect(Collectors.toList());
     }
 
     private static List<Student> studentsAgeGt25SortedDescByAge() {
-        return null;
+        return students.stream().filter(student -> student.age() > 25).sorted((s1, s2) -> s2.age() - s1.age()).collect(Collectors.toList());
     }
 
     private static List<Student> sortedByFirstNameThenByLastName() {
-        return null;
+        return students.stream().sorted(Comparator.comparing(Student::prenom).thenComparing(Student::nom)).collect(Collectors.toList());
     }
 
     private static void groupByGenre() {
         // Completer le code pour obtenir le resultat en commentaire plus bas
-       // final Map<String, List<Student>> collect = students.stream()
-        //System.out.println(collect);
+       final Map<String, List<Student>> collect = students.stream().collect(Collectors.groupingBy(Student::genre));
+        System.out.println(collect);
         System.out.println();
 
         //{F=[Student[prenom=Yan, nom=Zhou, genre=F, age=23, noteGlobale=99]],
