@@ -8,6 +8,7 @@ import java.util.List;
 public class Game {
 
     // On utlilise des lists raw et on n'utilise pas l'interface au lieux de la class
+    final int MAX_NUMBER_OF_QUESTIONS = 50;
     List<String> players = new ArrayList<>();
     int[] places = new int[6];
     int[] purses  = new int[6];
@@ -23,7 +24,7 @@ public class Game {
     boolean isGettingOutOfPenaltyBox;
 
     public  Game(){
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < MAX_NUMBER_OF_QUESTIONS; i++) { // Magic Number
             popQuestions.addLast("Pop Question " + i);
             scienceQuestions.addLast(("Science Question " + i));
             sportsQuestions.addLast(("Sports Question " + i));
