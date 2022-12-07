@@ -1,18 +1,23 @@
 package org.cal.examen;
 
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Game {
-    ArrayList players = new ArrayList();
+
+    // On utlilise des lists raw et on n'utilise pas l'interface au lieux de la class
+    List<String> players = new ArrayList<>();
     int[] places = new int[6];
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
 
-    LinkedList popQuestions = new LinkedList();
-    LinkedList scienceQuestions = new LinkedList();
-    LinkedList sportsQuestions = new LinkedList();
-    LinkedList rockQuestions = new LinkedList();
+    // On utlilise des lists raw et on n'utilise pas l'interface au lieux de la class
+    Deque<String> popQuestions = new LinkedList<>();
+    Deque<String> scienceQuestions = new LinkedList<>();
+    Deque<String> sportsQuestions = new LinkedList<>();
+    Deque<String> rockQuestions = new LinkedList<>();
 
     int currentPlayer = 0;
     boolean isGettingOutOfPenaltyBox;
